@@ -1,4 +1,4 @@
 # rock-paper-scissors
-This very popular game is currently only playable in web browser console, but I made sure to make it as interactive as possible. I plan to create a user interface and improve the functionality and user experience in general in the coming period.
+It's a very popular game I built with HTML, CSS and JavaScript as part of The Odin Project curriculum. This project was a great way to test my current JavaScript knowledge, especially DOM manipulations and using event listeners to create such an interactive game. It also gives me an opportunity to review CSS skills I've got so far from previous lessons and projects.
 
 Live preview: https://dg0mke.github.io/rock-paper-scissors
