@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Averia Libre", serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+    color: #333;
+}
+
+.title {
+    margin-top: 24px;
+    font-size: 64px;
+    text-align: center;
+}
+
+.container {
+    background-color: #fff;
+    border: 3px dotted #172f9ad8;
+    border-radius: 6px;
+    width: 70%;
+    padding: 48px;
+    margin: 64px auto;
+    flex: 1;
+}
+
+.round {
+    font-size: 48px;
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.players {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 48px;
+    margin-bottom: 8px;
+}
+
+@media all and (max-width: 800px) {
+    .players { 
+        display: none; 
+    }
+}
+
+.their-choice {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+
+.points {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 18px;
+    margin-bottom: 64px;
+}
+
+.choice-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.choice{
+    font-size: 64px;
+    width: 132px;
+    height: 132px;
+    background-color: #172f9ad8;
+    border: none;
+    border-radius: 100%;
+    padding: 24px;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.choice:hover {
+    border: 10px solid #172f9ad8;
+    background-color: #fff;
+}
+
+.choice:active {
+    border: none;
+    background-color: #172f9ad8;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.restart {
+    width: 120px;
+    height: 40px;
+    padding: 8px 32px;
+    margin-bottom: 24px;
+    font-size: 16px;
+    background-color: #172f9ad8;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.restart:hover {
+    border: 2px solid #172f9ad8;
+    background-color: #fff;
+    color: #172f9ad8;
+}
+
+.restart:active {
+    border: none;
+    background-color: #172f9ad8;
+    color: #fff;
+}
+
+.footer {
+    padding: 18px;
+}
