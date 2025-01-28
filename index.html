@@ -3,9 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/31e99ab6e3.js" crossorigin="anonymous"></script>
+    <script src="./script.js" defer></script>
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <script src="./script.js"></script>
+    <h1 class="title">Rock Paper Scissors</h1>
+
+    <div class="container">
+        <h2 class="round">Round: 0</h2>
+
+        <div class="players">
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-microchip"></i>
+        </div>
+
+        <div class="their-choice">
+            <p class="human-choice">You choose: </p>
+            <p class="computer-choice">Computer choose: </p>
+        </div>
+    
+        <div class="points">
+            <p class="human-points">Your points: 0</p>
+            <p class="computer-points">Computer's points: 0</p>
+        </div>
+
+        <div class="choice-container">
+            <button class="choice" id="rock">
+                <i class="fa-solid fa-hand-back-fist"></i>
+            </button>
+            <button class="choice" id="paper">
+                <i class="fa-solid fa-hand"></i>
+            </button>
+            <button class="choice" id="scissors">
+                <i class="fa-solid fa-hand-scissors"></i>
+            </button>
+        </div>
+
+        <div class="button-container">
+            <button class="restart">Restart</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Made with 💙 by <a href="https://github.com/dg0mke" target="_blank">Danijel Gomola</a></p>
+    </div>
 </body>
 </html>
