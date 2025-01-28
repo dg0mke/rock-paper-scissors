@@ -1,4 +1,13 @@
-// Get the computer choce
+// DOM Variables
+const choices = document.querySelectorAll(".choice");
+const humanChoice = document.querySelector(".human-choice");
+const computerChoice = document.querySelector(".computer-choice");
+const humanPoints = document.querySelector(".human-points");
+const computerPoints = document.querySelector(".computer-points");
+const roundNumber = document.querySelector(".round");
+const restartButton = document.querySelector(".restart");
+
+// Get the computer choice
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3);
 
@@ -12,70 +21,85 @@ function getComputerChoice() {
     }
 }
 
-// Get the human choice
-function getHumanChoice() {
-    while (true) {
-        const choice = prompt("Your choice: ").toLowerCase();
-
-        // Input validation
-        if (choice === "rock" || choice === "paper" || choice === "scissors") {
-            return choice;
-        } else {
-            alert("Error! Invalid choice.");
-        }
-    }
-}
-
 // Play an entire game
 function playGame() {
-    // Declare score variables
+    // Declare initial values
+    let round = 0;
     let humanScore = 0;
     let computerScore = 0;
 
+    roundNumber.textContent = "Round: 0";
+    restartButton.style.visibility = "hidden";
+
     // Play a single round
-    function playRound(humanChoice, computerChoice) {
-        if (humanChoice === "rock" && computerChoice === "paper") {
+    function playRound(human, computer) {
+        humanPoints.textContent = "Your points: 0";
+        computerPoints.textContent = "Computer's points: 0";
+
+        if (human === "rock" && computer === "paper") {
             computerScore++;
-            console.log("You lose! Paper beats rock!");
-        } else if (humanChoice === "rock" && computerChoice === "scissors") {
+            humanPoints.textContent = `Your points: ${humanScore}`;
+            computerPoints.textContent = `Computer's points: ${computerScore}`;
+        } else if (human === "rock" && computer === "scissors") {
             humanScore++;
-            console.log("You Win! Rock beats scissors!");
-        } else if (humanChoice === "paper" && computerChoice === "rock") {
+            humanPoints.textContent = `Your points: ${humanScore}`;
+            computerPoints.textContent = `Computer's points: ${computerScore}`;
+        } else if (human === "paper" && computer === "rock") {
             humanScore++;
-            console.log("You Win! Paper beats rock!");
-        } else if (humanChoice === "paper" && computerChoice === "scissors") {
+            humanPoints.textContent = `Your points: ${humanScore}`;
+            computerPoints.textContent = `Computer's points: ${computerScore}`;
+        } else if (human === "paper" && computer === "scissors") {
             computerScore++;
-            console.log("You Lose! Scissors beats paper!");
-        } else if (humanChoice === "scissors" && computerChoice === "rock") {
+            humanPoints.textContent = `Your points: ${humanScore}`;
+            computerPoints.textContent = `Computer's points: ${computerScore}`;
+        } else if (human === "scissors" && computer === "rock") {
             computerScore++;
-            console.log("You Lose! Rock beats scissors!");
-        } else if (humanChoice === "scissors" && computerChoice === "paper") {
+            humanPoints.textContent = `Your points: ${humanScore}`;
+            computerPoints.textContent = `Computer's points: ${computerScore}`;
+        } else if (human === "scissors" && computer === "paper") {
             humanScore++;
-            console.log("You Win! Scissors beats paper!");
+            humanPoints.textContent = `Your points: ${humanScore}`;
+            computerPoints.textContent = `Computer's points: ${computerScore}`;
         } else {
-            console.log("It's tie!");
+            humanPoints.textContent = `Your points: ${humanScore}`;
+            computerPoints.textContent = `Computer's points: ${computerScore}`;
         }
+    }
+
+    // Play five rounds
+    function playMultipleRounds() {
+        round++;
+        roundNumber.textContent = `Round: ${round}`;
         
-        console.log(`Human: ${humanScore}\t|\tComputer: ${computerScore}`);
+        if (round === 5) {
+            choices.forEach((choice) => {
+                choice.disabled = true;
+            });
+
+            restartButton.style.visibility = "visible";
+
+            restartButton.addEventListener("click", () => {
+                window.location.reload();
+            });
+        }
     }
 
-    // Play five rounds 
-    for (let i = 0; i < 5; i++) {
-        // Declare selection variables
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
+    // Play game using corresponding buttons
+    choices.forEach((choice) => {
+        choice.addEventListener("click", () => {
+            humanChoice.textContent = "You choose: ";
+            computerChoice.textContent = "Computer choose: ";
 
-        playRound(humanSelection, computerSelection);
-    }
+            const humanSelection = choice.id;
+            const computerSelection = getComputerChoice();
 
-    // Check final score
-    if (humanScore > computerScore) {
-        console.log("Congratulations! You won!");
-    } else if (humanScore < computerScore) {
-        console.log("You lose! Better luck next time!");
-    } else {
-        console.log("It's tie!");
-    }
+            humanChoice.textContent += humanSelection;
+            computerChoice.textContent += computerSelection;
+        
+            playRound(humanSelection, computerSelection);
+            playMultipleRounds();
+        });
+    });
 }
 
 playGame();
